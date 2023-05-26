@@ -6,10 +6,10 @@ function Navigation() {
     <nav className="navbar">
       <ul className="nav-list">
         <li className="nav-item">
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">Liste</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/add">Add task</NavLink>
+          <NavLink to="/add">Ajouter une tâche</NavLink>
         </li>
       </ul>
     </nav>

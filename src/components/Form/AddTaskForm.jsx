@@ -1,6 +1,5 @@
 import React,{useState} from "react"
 
-
 function addTaskForm({onSubmit}){
     const [addTask, setaddTask] = useState('')
 
@@ -10,15 +9,18 @@ function addTaskForm({onSubmit}){
         setaddTask('')
     }
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="task-form-wrapper">
+            <form className="task-form"
+             onSubmit={handleSubmit}>
                 <input
                     type={'text'}
                     placeholder={'Ajouter une tâche'}
                     value={addTask}
                     onChange={(e) => setaddTask(e.target.value)}
                 />
-                <button role={'submit'}>Enregistrer</button>
+                <button
+                className="task-save-btn"
+                 role={'submit'}>Enregistrer</button>
             </form>
             
         </div>
