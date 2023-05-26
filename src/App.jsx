@@ -7,6 +7,7 @@ import store from './store/store.js';
 import './App.css'
 import Navigation from './components/navigation';
 import AddTaskPage from './pages/AddTaskPage';
+import UpdateTaskPage from './pages/UpdateTaskPage';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -17,6 +18,7 @@ function App() {
         <Navigation></Navigation>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/update/:taskIndex" element={<UpdateTaskPage />} />
           <Route path="/add" element={<AddTaskPage />} />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
@@ -25,4 +27,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
