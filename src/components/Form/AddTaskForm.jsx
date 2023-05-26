@@ -1,12 +1,16 @@
 import React,{useState} from "react"
+import { useNavigate } from 'react-router-dom';
 
 function addTaskForm({onSubmit}){
     const [addTask, setaddTask] = useState('')
+    const navigate = useNavigate();
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
         onSubmit(addTask)
         setaddTask('')
+        navigate('/');
     }
     return(
         <div className="task-form-wrapper">
