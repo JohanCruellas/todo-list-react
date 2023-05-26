@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 
 const initialState = {
   counter: 0,
-  taskList: [{ text: 'Tache 1', isDone: false }, { text: 'Tache 2', isDone: true }]
+  taskList: [{ text: 'Tache 1', isDone: false }, { text: 'Tache 2', isDone: true }],
 };
 
 const reducer = (state = initialState, action) => {
@@ -31,14 +31,6 @@ const reducer = (state = initialState, action) => {
       if (action.payload.trim() === '') {
         return state;
       }
-
-      if (state.taskList.find((task) => task.text === action.payload)) {
-        return {
-          ...state,
-          message: `La tâche "${action.payload}" existe déjà.`
-        };
-      }
-
       return {
         ...state,
         taskList: [...state.taskList, { text: action.payload, isDone: false }]

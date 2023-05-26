@@ -4,19 +4,25 @@ import { useNavigate } from 'react-router-dom';
 function UpdateTaskForm({ task, onSubmit }) {
 
   const [updatedTask, setUpdatedTask] = useState(task);
+  const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(updatedTask);
-    navigate('/');
-    console.log(updatedTask)
+    setShowError(false)
+    if (updatedTask.text !== '') {
+      onSubmit(updatedTask);
+      navigate('/');
+      console.log(updatedTask)
+    }
+    else {
+      setShowError(true)
+    }
 
   };
 
   const handleInputChange = (e) => {
     setUpdatedTask({ ...updatedTask, text: e.target.value });
-    console.log(e.target.value)
   };
 
   return (
@@ -30,6 +36,7 @@ function UpdateTaskForm({ task, onSubmit }) {
           value={updatedTask.text}
           onChange={handleInputChange}
         />
+        {showError ? <div className='error-msg'>Une tâche ne peut pas être vide</div> : null }
         <button className="task-save-btn" type="submit">Enregistrer</button>
       </form>
     </div>
