@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'UPDATE_TASK':
       const updatedTaskList = state.taskList.map((task, index) => {
-        if (index === action.payload.index) {
+        if (index === parseInt(action.payload.index)) {
           return {
             text: action.payload.text,
             isDone: action.payload.isDone

@@ -10,21 +10,20 @@ function UpdateTaskPage() {
   const onUpdateTask = (item) => dispatch(updateTask(item));
   const { state } = useLocation();
   const navigate = useNavigate();
-let {taskIndex}= useParams();
+  let { taskIndex } = useParams();
   const task = taskList[taskIndex];
-  
-  
+
+
 
   const goBack = () => {
     navigate(-1);
   };
 
   return (
-    <>
-      <h1>Modifier la Tâche: {taskIndex}</h1>
-      <UpdateTaskForm task={{...task,index:taskIndex}} onSubmit={onUpdateTask} />
-      <button onClick={goBack}>Retour</button>
-    </>
+    <div className='page-wrapper'>
+      <UpdateTaskForm task={{ ...task, index: taskIndex }} onSubmit={onUpdateTask} />
+      <button className='back-btn' onClick={goBack}>Retour</button>
+    </div>
   );
 }
 

@@ -1,8 +1,9 @@
 import React from 'react';
-import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { deleteTask, updateTask } from '../store/actions/taskActions.js';
 import { MdClose } from "react-icons/md";
+import { Link } from 'react-router-dom';
+
 
 function Task({ task }) {
     const dispatch = useDispatch();
@@ -18,7 +19,9 @@ function Task({ task }) {
 
     return (
         <div className='task-card'>
-            {task.text}
+            <Link to={{ pathname: `/update/${task.index}`, state: task }}>
+                {task.text}
+            </Link>
             <div className='action-wrapper'>
                 <input
                     className='task-checkbox'

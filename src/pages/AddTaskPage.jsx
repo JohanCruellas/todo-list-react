@@ -15,9 +15,9 @@ function AddTaskPage() {
   };
 
   return (
-    <div>
+    <div className='page-wrapper'>
       <AddTaskForm onSubmit={onAddTask} />
-      <button onClick={goBack}>Retour</button>
+      <button className='back-btn' onClick={goBack}>Retour</button>
     </div>
   );
 }

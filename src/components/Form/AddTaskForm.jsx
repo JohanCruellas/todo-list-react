@@ -26,7 +26,6 @@ function addTaskForm({onSubmit}){
                 className="task-save-btn"
                  role={'submit'}>Enregistrer</button>
             </form>
-            
         </div>
     )
 }
